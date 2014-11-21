@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Light.SwivlTest" parent="@android:style/Theme.Light">
+        <item name="android:listViewStyle">@style/WIdget.ListView.SwivlTest</item>
+    </style>
+
+    <style name="WIdget.ListView.SwivlTest" parent="@android:style/Widget.ListView">
+        <item name="android:listSelector">@drawable/list_item</item>
+        <item name="android:divider">@drawable/transparent_rect</item>
+        <item name="android:dividerHeight">1px</item>
+        <item name="android:cacheColorHint">#00000000</item>
+    </style>
+
+    <style name="login_text">
+        <item name="android:textColor">#FF525252</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="html_url_text">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+</resources>

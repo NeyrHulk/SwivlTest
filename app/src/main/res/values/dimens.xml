@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- main -->
+    <dimen name="main_top_buttons_layout_height">40dp</dimen>
+    <dimen name="main_top_buttons_layout_padding">10dp</dimen>
+    <dimen name="main_top_bottom_listview_margin">10dp</dimen>
+
+    <!-- listview_item -->
+    <dimen name="listview_item_layout_padding">6dp</dimen>
+    <dimen name="listview_item_login_textview_width">100dp</dimen>
+    <dimen name="listview_item_login_textview_height">24dp</dimen>
+    <dimen name="listview_item_html_url_textview_width">160dp</dimen>
+    <dimen name="listview_item_html_url_textview_height">24dp</dimen>
+    <dimen name="listview_item_margin">10dp</dimen>
+
+</resources>

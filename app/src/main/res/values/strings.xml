@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SwivlTest</string>
+
+    <!-- UI related -->
+    <string name="reload_button_text">Reload</string>
+    <string name="loading_progress_dialog_message_text">Loading...</string>
+    <string name="connection_error_message_text">Connection errror</string>
+    <string name="no_network_connection_toast_text">No network connection</string>
+
+    <!-- Key strings -->
+    <string name="messenger_key">messenger_key</string>
+    <string name="dialog_fragment_title_key">title_key</string>
+    <string name="dialog_fragment_show_ok_button_key">show_ok_button_key</string>
+    <string name="alert_dialog_fragment_tag_key">alert_dialog_fragment_tag_key</string>
+
+</resources>

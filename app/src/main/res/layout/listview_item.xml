@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listview_item_linearlayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/listview_item_layout_padding">
+
+    <TextView
+        android:id="@+id/listview_item_login_textview"
+        android:ellipsize="end"
+        android:gravity="start|center_vertical"
+        android:layout_width="@dimen/listview_item_login_textview_width"
+        android:layout_height="@dimen/listview_item_login_textview_height"
+        android:layout_marginLeft="@dimen/listview_item_margin"
+        android:layout_marginStart="@dimen/listview_item_margin"
+        android:layout_gravity="center"
+        android:singleLine="true"
+        style="@style/login_text"/>
+
+    <TextView
+        android:id="@+id/listview_item_html_url_textview"
+        android:ellipsize="end"
+        android:autoLink="web"
+        android:gravity="start|center_vertical"
+        android:layout_width="@dimen/listview_item_html_url_textview_width"
+        android:layout_height="@dimen/listview_item_html_url_textview_height"
+        android:layout_marginLeft="@dimen/listview_item_margin"
+        android:layout_marginStart="@dimen/listview_item_margin"
+        android:layout_gravity="center"
+        android:singleLine="true"
+        style="@style/html_url_text"/>
+
+    <ImageView
+        android:id="@+id/listview_item_avatar_url_imageview"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/listview_item_margin"
+        android:layout_marginStart="@dimen/listview_item_margin"
+        android:src="@drawable/photo_default"/>
+
+</LinearLayout>

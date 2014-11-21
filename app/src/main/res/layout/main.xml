@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_outer_linearlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout android:id="@+id/main_top_relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_top_buttons_layout_height"
+        android:layout_marginTop="@dimen/main_top_bottom_listview_margin"
+        android:layout_marginBottom="@dimen/main_top_bottom_listview_margin"
+        android:paddingLeft="@dimen/main_top_buttons_layout_padding"
+        android:paddingRight="@dimen/main_top_buttons_layout_padding">
+
+        <Button
+            android:id="@+id/main_top_reload_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/reload_button_text"/>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/main_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/main_top_bottom_listview_margin"
+        android:addStatesFromChildren="true"
+        android:gravity="center"
+        android:isScrollContainer="true"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true"/>
+
+</LinearLayout>
