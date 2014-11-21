@@ -17,7 +17,7 @@ import com.test.swivl.storage.BeansDBAdapter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BeanCursorAdapter extends CursorAdapter {
+public class BeanCursorAdapter extends CursorAdapter implements View.OnClickListener {
     private static class ViewHolder {
         protected TextView mLoginTextView;
         protected TextView mHtmlUrlTextView;
@@ -89,6 +89,7 @@ public class BeanCursorAdapter extends CursorAdapter {
         viewHolder.mLoginTextView = (TextView) itemView.findViewById(R.id.listview_item_login_textview);
         viewHolder.mHtmlUrlTextView = (TextView) itemView.findViewById(R.id.listview_item_html_url_textview);
         viewHolder.mAvatarImageView = (ImageView) itemView.findViewById(R.id.listview_item_avatar_url_imageview);
+        viewHolder.mAvatarImageView.setOnClickListener(this);
         itemView.setTag(viewHolder);
         return itemView;
     }
@@ -105,5 +106,11 @@ public class BeanCursorAdapter extends CursorAdapter {
                 }
             }
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        int imageId = Integer.valueOf(mVisibleImageViewsToIds.get(v));
+        mMainActivity.showLargeImage(imageId);
     }
 }

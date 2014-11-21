@@ -38,6 +38,8 @@ import java.util.Map;
 public class MainActivity extends FragmentActivity {
     public static final int UPDATE_AVATAR_IMAGEVIEW = 10;
     public static final int SMALL_AVATAR_SIZE = 100;
+    public static final int BIG_AVATAR_SIZE = 400;
+
     private Handler mHandler;
     private ListView mUsersListView;
     private Button mReloadButton;
@@ -136,6 +138,10 @@ public class MainActivity extends FragmentActivity {
 
     Map<String, Bitmap> getCache() {
         return mCache;
+    }
+
+    void showLargeImage(int id) {
+        new FetchUserByIdTask().execute(id);
     }
 
     private void downloadUsers() {
@@ -270,6 +276,40 @@ public class MainActivity extends FragmentActivity {
         protected void onPostExecute(Object[] result) {
             ((BeanCursorAdapter) mUsersListView.getAdapter())
                     .updateDownloadedAvatar((Integer) result[0], (byte[]) result[1]);
+        }
+    }
+
+    private class FetchUserByIdTask extends AsyncTask<Integer, Void, Cursor> {
+
+        @Override
+        protected void onPreExecute() {
+            openDBAdapter();
+        }
+
+        @Override
+        protected Cursor doInBackground(Integer... params) {
+            return mDBAdapter.fetchUserById(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Cursor result) {
+            String userLogin = "";
+            byte[] imageBytes = null;
+
+            if (result != null && result.moveToFirst()) {
+                userLogin = result.getString(BeansDBAdapter.LOGIN_COLUMN_INDEX);
+                if (result.getBlob(BeansDBAdapter.AVATAR_COLUMN_INDEX) != null) {
+                    imageBytes = result.getBlob(BeansDBAdapter.AVATAR_COLUMN_INDEX);
+                } else {
+                    downloadImageInBackground(result.getInt(BeansDBAdapter.ID_COLUMN_INDEX));
+                }
+            }
+
+            DialogFragment newFragment = LargeImageDialogFragment.newInstance(
+                    getString(R.string.dialog_fragment_title_key), userLogin,
+                    getString(R.string.dialog_fragment_image_bytes_key), imageBytes);
+            newFragment.show(getSupportFragmentManager(),
+                    getString(R.string.large_image_dialog_fragment_tag_key));
         }
     }
 }

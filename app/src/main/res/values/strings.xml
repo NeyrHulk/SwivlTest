@@ -14,5 +14,7 @@
     <string name="dialog_fragment_title_key">title_key</string>
     <string name="dialog_fragment_show_ok_button_key">show_ok_button_key</string>
     <string name="alert_dialog_fragment_tag_key">alert_dialog_fragment_tag_key</string>
+    <string name="dialog_fragment_image_bytes_key">image_bytes_key</string>
+    <string name="large_image_dialog_fragment_tag_key">large_image_dialog_fragment_tag_key</string>
 
 </resources>

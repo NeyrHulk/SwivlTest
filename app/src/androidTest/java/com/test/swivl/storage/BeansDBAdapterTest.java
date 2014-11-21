@@ -82,6 +82,29 @@ public class BeansDBAdapterTest extends AndroidTestCase {
         assertEquals(users.size(),  countRowsInDBTable());
     }
 
+    public void testFetchUserById() {
+        assertEquals(0, countRowsInDBTable());
+
+        BeansFactory beansFactory = new BeansFactory();
+        UserBean user1 = beansFactory.makeUser(0);
+        UserBean user2 = beansFactory.makeUser(1);
+
+        insertUser(user1);
+        insertUser(user2);
+        TestsHelper.sleepThreadToWairForAction(TestsHelper.TIME_DELAY_TO_VERIFY_ACTION / 8);
+
+        for (int i = 0; i < 2; i++) {
+            Cursor cursor = mDBAdapter.fetchUserById(i);
+            assertNotNull(cursor);
+            assertEquals(1, cursor.getCount());
+            cursor.moveToFirst();
+            UserBean user = (i == 0 ? user1 : user2);
+            assertEquals(user.getId().intValue(), cursor.getInt(BeansDBAdapter.ID_COLUMN_INDEX));
+            assertEquals(user.getLogin(), cursor.getString(BeansDBAdapter.LOGIN_COLUMN_INDEX));
+            assertEquals(user.getHtml_url(), cursor.getString(BeansDBAdapter.HTML_URL_COLUMN_INDEX));
+        }
+    }
+
     public void testFetchAllUsersSortedById() {
         assertEquals(0, countRowsInDBTable());
 

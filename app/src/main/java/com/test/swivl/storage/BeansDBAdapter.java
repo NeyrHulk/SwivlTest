@@ -124,6 +124,17 @@ public class BeansDBAdapter {
         return result;
     }
 
+    public Cursor fetchUserById(int id)
+            throws SQLException {
+        Cursor result;
+
+        result = mDatabase.query(false,
+                BeansDBOpenHelper.BEANS_TABLE_NAME, mAllColumnsProjection,
+                ID_COLUMN_NAME + " = ?", new String[]{String.valueOf(id)}, null, null, null, null);
+
+        return result;
+    }
+
     public void putBeans(List<UserBean> userBeans) {
         if (deleteAll() > RESULT_IF_QUERRY_FAIL) {
             for(UserBean userBean : userBeans) {
